@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>Crie rotas - Google Maps API</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" href="img/mapsMarcador.png" type="image/gif" sizes="16x16">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!--Google-->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoArHtLgyxBL4b3OnUSGhV3R0yuB-2jhM&libraries=places&callback=initMap"
+            async defer></script>
+        <!--BootStrap-->
+            <meta name="viewport" content="width=device-width, initial-scale=1">        
+            <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">      
+    </head>
+
+<body id="corpoPage">
+  <div class="container-fluid">
+      <header class="row">
+          <div class="col-sm-12 hidden-xs"> 
+              <h1><b>Crie rotas</b> - Google Maps API</h1> 
+          </div>
+          <div class="col-xs-8 visible-xs"> 
+              <h1><b>Crie Rotas</b></h1>
+          </div>
+              <div class="col-sm-1 col-sm-offset-2 hidden-xs">  
+               <img src="img/marcadorVerde.png">
+              </div>
+              <div class="col-sm-1 hidden-xs">
+               <img src="img/marcadorAmarelo.png">
+              </div>
+              <div class="col-sm-1 hidden-xs">
+               <img src="img/marcadorLaranja.png">
+              </div>
+              <div  class="col-sm-1 hidden-xs">
+               <img src="img/marcadorRosa.png">
+              </div>
+              <div  class="col-sm-1 hidden-xs">
+               <img src="img/marcadorAzul.png">
+              </div>  
+              <div class="col-xs-offset-8 col-sm-3 col-sm-offset-2" id="marcador">
+               <img src="img/marcador.png">  
+              </div>
+          <div class="col-xs-10 col-xs-offset-2">
+            <div class="linha"></div>
+          </div>             
+      </header>  
+
+    <div class="row">  
+      <div class="col-md-6  controls-text">     
+        <b>Partida:</b> <br/>
+        <input id="partida" class="controls" type="text" placeholder="Insira a partida">
+      </div>
+      <div class="col-md-6  controls-text">    
+        <b>Destino:</b> <br/>
+        <input id="destino" class="controls" type="text" placeholder="Insira o destino">
+      </div>      
+    </div>  
+
+   <div class="row">
+     <div class="col-md-5  controls-text">
+       <b>Parada:</b> <br/> 
+       <input id="parada"  class="controls" type="text" placeholder="Insira a parada">
+     </div>
+     <div class="col-sm-7 col-md-4" id="eventoParadas">
+       <input class="btn btn-default" type="submit" value="Inserir" onclick="armazenarParadas()">
+       <a href="#listaWaypoints" class="btnLink">
+           <input  class="btn btn-default" type="submit" value="Mostrar" onclick="inserirParadasHtml()">
+       </a>
+       <input class="btn btn-default" type="submit" value="Remover" onclick="zerarParadas()">            
+     </div> 
+    </div>
+      
+    <div class="row">  
+        <div class="col-xs-12 col-sm-4"> 
+           <input class="btn btn-primary" type="submit" id="returnRota" value="Gerar rota"> 
+        </div>
+        <div class="col-xs-8"> 
+          <a href="#directions-panel" class="btnLink">   
+            <input class="btn btn-primary" type="submit" id="mostraDirecoes" value="Direções">
+          </a> 
+           <input class="btn btn-primary" type="submit" id="resetRota" value="Resetar" onclick="zerarRotas()">
+        </div>  
+   </div>
+
+    <div class="row">
+        <div class="row">      
+          <div class="col-sm-5  col-sm-offset-1 col-xs-12">    
+            <div id="mode-selector" class="controls xs-hidden">
+                <input type="radio" name="type" id="changemode-walking" checked="checked">
+                <label for="changemode-walking">Caminhando</label>    
+
+                 <input type="radio" name="type" id="changemode-driving">
+                 <label for="changemode-driving">Dirigindo</label>
+
+                 <input type="radio" name="type" id="changemode-transit">
+                 <label for="changemode-transit">Trânsito</label>
+  
+            </div>    
+          </div> 
+        </div>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+            <div id="map"></div> 
+          </div>
+        </div>
+       <div class="row">
+          <div class="col-xs-10 col-xs-offset-2" id="linhaDown">
+              <div class="linha"></div>
+          </div>
+       </div>
+  </div>      
+      
+    <div class="row" id="right-panel">
+        <div class="col-xs-12" id="listaWaypoints"></div>
+        <div class="col-xs-12" id="directions-panel"></div> <!-- Directions -->
+    </div>
+
+    <footer class="row">
+      <div class="col-xs-4 col-sm-8">
+          Voltar ao <a href="#">início</a>
+      </div>    
+      <div class="col-xs-8 col-sm-4" id="foot-about">
+          <div class="col-xs-12">
+              <b>Desenvolvido por:</b> 
+              <a href="https://github.com/JohnyKleinCatolica" target="_blank">
+                  Johny Klein
+              </a>
+          </div>
+          <div class="col-xs-12">
+            <b>Em:</b> 2017
+          </div>      
+      </div>
+    </footer>      
+      
+  </div>      
+    
+  <script src="maps.js"></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>      
+
+</body>
+</html>
